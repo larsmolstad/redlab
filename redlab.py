@@ -1,6 +1,11 @@
 import time
 from ctypes import *
-cbw = windll.cbw64
+import platform
+
+if platform.architecture()[0] == '32bit':
+    cbw = windll.cbw32  
+else:
+    cbw = windll.cbw64 
 
 # Gain [-10 10] [-5 5] [-2 2] [-1 1]
 #            1      0     14      4
